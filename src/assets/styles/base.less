@@ -1,0 +1,173 @@
+html,
+body,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+hr,
+div,
+img,
+a,
+span,
+p,
+form,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+fieldset,
+legend,
+textarea,
+blockquote,
+th,
+td,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  padding: 0;
+  margin: 0;
+  /*设置宽度以边框开始计算*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 去除元素被触摸时产生的半透明灰色背景（去除高亮） */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  /* 旋转屏幕时禁止调整字体大小 */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  /*禁止 iOS 弹出各种操作窗口，禁止ios&android长按时下载图片*/
+  -webkit-touch-callout: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input {
+  /*重置表单元素默认样式，ios输入框默认会有内阴影*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+/* 兼容：添加-webkit-appearance后，checkbox和radio类型在安卓端无法正常显示 */
+input[type=checkbox],
+input[type=radio] {
+  -webkit-appearance: checkbox;
+}
+
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  outline: none;
+}
+
+/* android 上去掉语音输入按钮 */
+input::-webkit-input-speech-button {
+  display: none;
+}
+
+/* 禁用长按页面时的弹出菜单 */
+img,
+a {
+  -webkit-touch-callout: none;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+ins,
+i,
+s {
+  font-style: normal;
+}
+
+/*a链接初始化*/
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.fr {
+  float: left;
+}
+
+.fl {
+  float: right;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  /*移动端没有微软雅黑字体*/
+  font-family: -apple-system, Helvetica, Microsoft YaHei, sans-serif;
+  -webkit-overflow-scrolling: touch;
+}
+
+.layout {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 640px;
+}

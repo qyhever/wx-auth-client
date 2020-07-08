@@ -1,0 +1,207 @@
+/**
+ * 这个文件的 variable 和 mixin 会注入到全局，使用时不用 @import
+ */
+@primary-background: #f4f5f5;
+@page-bg-color: #F7F7F7;
+// 文字颜色（主要、常规、次要/说明、占位）
+@color-text-primary: #333;
+@color-text-regular: #666;
+@color-text-secondary: #999;
+@color-text-placeholder: #ccc;
+// 线框颜色（一级、二级、三级）
+@border-color-base: #D1D5DE;
+@border-color-light: #E5E7F3;
+@border-color-lighter: #EFF3FC;
+// 字体
+@font-size-extra-large: 20px;
+@font-size-large: 18px;
+@font-size-medium: 16px;
+@font-size-base: 14px;
+@font-size-small: 13px;
+@font-size-extra-small: 12px;
+
+// 设置 input placeholder 样式
+.input-placeholder(@color, @font-size: 14px) {
+  &::placeholder {
+    color: @color;
+    opacity: 1;
+    font-size: @font-size;
+  }
+
+  /* WebKit browsers*/
+  &::-webkit-input-placeholder {
+    color: @color;
+    font-size: @font-size;
+  }
+
+  /* Firefox 4-18*/
+  &:-moz-placeholder {
+    color: @color;
+    opacity: 1;
+    font-size: @font-size;
+  }
+
+  /* Firefox 19+*/
+  &::-moz-placeholder {
+    color: @color;
+    opacity: 1;
+    font-size: @font-size;
+  }
+
+  /* IE 10+*/
+  &:-ms-input-placeholder {
+    color: @color;
+    font-size: @font-size;
+  }
+}
+
+// 一行省略
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// 多行省略
+.ellipsis-multi(@line: 3, @bg: #fff) {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.5em;
+  max-height: @line * 1.5em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+
+  &:before {
+    background: @bg;
+    content: '...';
+    padding: 0 1px;
+    position: absolute;
+    right: 14px;
+    bottom: 0;
+  }
+
+  &:after {
+    background: white;
+    content: '';
+    margin-top: 0.2em;
+    position: absolute;
+    right: 14px;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+// 边框
+.border-1px(@type, @color, @len: 1px) {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+
+    & when (@type =top) {
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-@{type}: @len solid @color;
+    }
+
+    & when (@type =bottom) {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-@{type}: @len solid @color;
+    }
+
+    & when (@type =left) {
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-@{type}: @len solid @color;
+    }
+
+    & when (@type =right) {
+      top: 0;
+      right: 0;
+      height: 100%;
+      border-@{type}: @len solid @color;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.5),
+    (min-device-pixel-ratio: 1.5) {
+      -webkit-transform: scaleY(0.7);
+      transform: scaleY(0.7);
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-device-pixel-ratio: 2) {
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+  }
+}
+
+.border-top-1px(@color: #ccc) {
+  .border(top, @color);
+}
+
+.border-left-1px(@color: #ccc) {
+  .border(left, @color);
+}
+
+.border-right-1px(@color: #ccc) {
+  .border(right, @color);
+}
+
+.border-bottom-1px(@color: #ccc) {
+  .border(bottom, @color);
+}
+
+// 三角形
+.triangle(@type: top, @width: 6px, @color: #000) {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+
+  & when (@type =top) {
+    border-top: @width solid @color;
+    border-bottom: @width dashed transparent;
+    border-left: @width dashed transparent;
+    border-right: @width dashed transparent;
+  }
+
+  & when (@type =left) {
+    border-left: @width solid @color;
+    border-top: @width dashed transparent;
+    border-bottom: @width dashed transparent;
+    border-right: @width dashed transparent;
+  }
+
+  & when (@type =right) {
+    border-right: @width solid @color;
+    border-top: @width dashed transparent;
+    border-bottom: @width dashed transparent;
+    border-left: @width dashed transparent;
+  }
+
+  & when (@type =bottom) {
+    border-bottom: @width solid @color;
+    border-top: @width dashed transparent;
+    border-left: @width dashed transparent;
+    border-right: @width dashed transparent;
+  }
+}
+
+.extend-click() {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
