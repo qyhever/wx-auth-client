@@ -24,7 +24,8 @@ module.exports = {
   globals: {
     require: false,
     AMap: false,
-    process: false
+    process: false,
+    wx: false
   },
   // add your custom rules here
   rules: {

@@ -5,10 +5,11 @@ import router from '@/router'
 // import { getToken } from '@/utils/local'
 
 const baseURL = {
-  dev: 'http://localhost:3000',
-  test: 'http://test.pluton.com',
-  prod: 'http://pluton.com'
-}[process.env.MODE]
+  // dev: '/api',
+  dev: 'http://www.qyhever.com:4444',
+  test: 'http://www.qyhever.com:4444',
+  prod: 'http://www.qyhever.com:4444'
+}[process.env.VUE_APP_MODE]
 
 const codeMessage = {
   400: '请求错误',
@@ -73,7 +74,7 @@ const _request = (
         return response
       }
       const responseData = response.data || {}
-      if (responseData.code === 1) { // success code
+      if (responseData.success || responseData.code === 1) { // success code
         return responseData.data
       }
       if (showWarningMsg) {
@@ -84,6 +85,7 @@ const _request = (
       throw err
     })
     .catch(error => {
+      console.log(error.response.config)
       if (error.name === 'warning') {
         throw error
       }

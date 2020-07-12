@@ -33,11 +33,17 @@ module.exports = {
     overlay: {
       warnings: true,
       errors: true
+    },
+    proxy: {
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      '/api': {
+        target: 'http://localhost:4444/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      }
     }
-    // proxy: {
-    //   // change xxx-api/login => mock/login
-    //   // detail: https://cli.vuejs.org/config/#devserver-proxy
-    // }
   },
   pluginOptions: {
     // import global scss variables and mixins
@@ -89,7 +95,7 @@ module.exports = {
     loaderOptions: {
       less: {
         modifyVars: {
-          '@green': '#ffd938'
+          '@green': '#2483ff'
         }
       }
     }
