@@ -31,3 +31,13 @@ npm run lint:fix
   127.0.0.1 wx.qyhever.com
   ```
 做完配置后就可以正确的 获取网页授权 和 js-sdk 的调用了
+
+### 开发中的注意点
+- 获取当前 url (不包含 # 及后面部分)
+  ```javascript
+  location.href.replace(/\/#.*$/, '')
+  // or
+  location.href.split('#')[0]
+  ```
+- 网页授权的 url 参数需要 `encodeURI` 处理
+- js-sdk 初始化的 url 参数不需要 `encodeURI` 处理
