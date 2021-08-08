@@ -79,15 +79,9 @@ module.exports = {
       .options({
         symbolId: '[name]'
       })
-      // .end()
-      // .use('image-webpack-loader')
-      // .loader('image-webpack-loader')
-      // .options({
-      //     disable: isDev
-      // })
 
       config.plugin('html').tap(args => {
-        args[0].cdn = isDev? cdn.dev : cdn.build
+        args[0].cdn = isDev ? cdn.dev : cdn.build
         return args
       })
   },

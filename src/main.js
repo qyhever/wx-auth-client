@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import VConsole from 'vconsole'
 
-import './assets/icons'
+// import './assets/icons'
 import './plugins'
 import './assets/styles/index.less'
 new VConsole()

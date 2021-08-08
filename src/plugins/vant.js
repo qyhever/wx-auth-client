@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Button, Cell, NavBar, Uploader, Dialog } from 'vant'
+import { Button, Cell, NavBar, Uploader, Dialog, Image, Row, Skeleton } from 'vant'
 
 Vue
   .use(Button)
@@ -7,3 +7,6 @@ Vue
   .use(NavBar)
   .use(Uploader)
   .use(Dialog)
+  .use(Image)
+  .use(Row)
+  .use(Skeleton)

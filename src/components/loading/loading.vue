@@ -24,7 +24,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .loading-mask_transparent {
     position: fixed;
     z-index: 999;

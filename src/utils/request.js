@@ -6,9 +6,9 @@ import router from '@/router'
 
 const baseURL = {
   // dev: '/api',
-  dev: 'http://www.qyhever.com:4444',
-  test: 'http://www.qyhever.com:4444',
-  prod: 'http://www.qyhever.com:4444'
+  dev: 'http://www.qyhever.com/wx',
+  test: 'http://www.qyhever.com/wx',
+  prod: 'http://www.qyhever.com/wx'
 }[process.env.VUE_APP_MODE]
 
 const codeMessage = {
